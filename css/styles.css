@@ -55,10 +55,23 @@ a {
 }
 
 .logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  flex-shrink: 0;
+  text-decoration: none;
+}
+
+.logo__image {
+  display: block;
+  width: auto;
+  max-height: 44px;
+}
+
+.logo__text {
   font-size: 1.2rem;
   font-weight: 800;
   letter-spacing: -0.04em;
-  text-decoration: none;
 }
 
 .nav-menu {
@@ -131,6 +144,16 @@ a {
 .hero__content {
   padding-top: 5rem;
   padding-bottom: 5rem;
+}
+
+.hero__logo-wrap {
+  margin-bottom: 1.25rem;
+}
+
+.hero__logo {
+  display: block;
+  width: min(220px, 58vw);
+  height: auto;
 }
 
 .eyebrow {
@@ -404,6 +427,18 @@ h3 {
 }
 
 @media (max-width: 760px) {
+  .logo {
+    gap: 0.5rem;
+  }
+
+  .logo__image {
+    max-height: 38px;
+  }
+
+  .logo__text {
+    font-size: 1rem;
+  }
+
   .menu-toggle {
     display: inline-block;
   }

@@ -19,10 +19,12 @@
 
 % Paleta pastel institucional para jerarquía visual y navegación.
 \definecolor{PastelBlue}{HTML}{DDEAF6}
-\definecolor{PastelGreen}{HTML}{E0F0E6}
+\definecolor{PastelMint}{HTML}{DDF2E6}
+\definecolor{PastelSage}{HTML}{E5EFD8}
 \definecolor{PastelYellow}{HTML}{F6EFCF}
 \definecolor{PastelPink}{HTML}{F4DDE4}
 \definecolor{PastelLavender}{HTML}{E8E1F2}
+\definecolor{PastelGreen}{HTML}{E0F0E6}
 \definecolor{DarkText}{HTML}{27323A}
 \definecolor{SoftGray}{HTML}{D8DEE3}
 \definecolor{SoftGrayFill}{HTML}{F6F7F8}
@@ -38,6 +40,13 @@
   {}
   {0pt}
   {\colorbox{\SectionTone}{\parbox{\dimexpr\textwidth-2\fboxsep\relax}{\strut\thesection\enspace #1}}}
+  [\vspace{-0.35em}{\color{\SectionTone}\titlerule[1.2pt]}]
+
+\titleformat{name=\section,numberless}
+  {\Large\bfseries\color{DarkText}}
+  {}
+  {0pt}
+  {\colorbox{\SectionTone}{\parbox{\dimexpr\textwidth-2\fboxsep\relax}{\strut #1}}}
   [\vspace{-0.35em}{\color{\SectionTone}\titlerule[1.2pt]}]
 \titleformat{\subsection}
   {\large\bfseries\color{DarkText}}
@@ -255,7 +264,7 @@ Desarrollar una experiencia de Soundpainting en Facatativá mediante formación,
   \item Fortalecer la programación escénica y cultural en el marco de Tunjo Fest.
 \end{itemize}
 
-\proposalSection{PastelBlue}{Justificación cultural, social y territorial}
+\proposalSection{PastelPink}{Justificación cultural, social y territorial}
 
 \subsection{Pertinencia del Soundpainting}
 
@@ -279,7 +288,7 @@ En el marco de Tunjo Fest, la propuesta funciona como una actividad artística, 
 
 A través de la improvisación, la composición en vivo y la escucha colectiva, el proyecto favorece el diálogo entre escuelas artísticas, amplía las posibilidades escénicas del evento mediante la inclusión del circo y la integración potencial de medios audiovisuales, artes visuales, pintura y dibujo, y contribuye a visibilizar los procesos formativos de la Casa de la Cultura dentro de la agenda cultural municipal.
 
-\proposalSection{PastelGreen}{Diseño artístico, pedagógico y metodológico}
+\proposalSection{PastelMint}{Diseño artístico, pedagógico y metodológico}
 
 \subsection{Descripción de la presentación}
 
@@ -609,7 +618,7 @@ Tunjo Fest Soundpainting propone una experiencia artística, pedagógica y comun
 La propuesta busca dejar un resultado escénico visible, fortalecer el intercambio entre artistas invitados y artistas locales, y aportar a la programación cultural municipal.
 \end{tcolorbox}
 
-\proposalSection{PastelLavender}{Anexo presupuestal}
+\proposalSection{PastelSage}{Anexo presupuestal}
 
 \subsection{Costos unitarios}
 

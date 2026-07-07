@@ -6,11 +6,70 @@
 \usepackage{lmodern}
 \usepackage[a4paper,margin=1.8cm]{geometry}
 \usepackage{array,booktabs,longtable,tabularx}
+\usepackage[table]{xcolor}
+\usepackage[most]{tcolorbox}
+\usepackage{titlesec}
 \usepackage{enumitem}
 \usepackage{fancyhdr}
 \usepackage{hyperref}
 \usepackage{xurl}
 \usepackage{microtype}
+
+
+% Paleta pastel institucional para jerarquía visual y navegación.
+\definecolor{PastelBlue}{HTML}{DDEAF6}
+\definecolor{PastelGreen}{HTML}{E0F0E6}
+\definecolor{PastelYellow}{HTML}{F6EFCF}
+\definecolor{PastelPink}{HTML}{F4DDE4}
+\definecolor{PastelLavender}{HTML}{E8E1F2}
+\definecolor{DarkText}{HTML}{27323A}
+\definecolor{SoftGray}{HTML}{D8DEE3}
+\definecolor{SoftGrayFill}{HTML}{F6F7F8}
+\definecolor{MutedText}{HTML}{5A6670}
+
+\color{DarkText}
+\arrayrulecolor{SoftGray}
+\newcommand{\SectionTone}{PastelBlue}
+\newcommand{\setsectioncolor}[1]{\renewcommand{\SectionTone}{#1}}
+
+\titleformat{\section}
+  {\Large\bfseries\color{DarkText}}
+  {}
+  {0pt}
+  {\colorbox{\SectionTone}{\parbox{\dimexpr\textwidth-2\fboxsep\relax}{\strut #1}}}
+  [\vspace{-0.35em}{\color{\SectionTone}\titlerule[1.2pt]}]
+\titleformat{\subsection}
+  {\large\bfseries\color{DarkText}}
+  {}
+  {0pt}
+  {#1}
+  [{\color{\SectionTone}\titlerule[0.6pt]}]
+\titleformat{\subsubsection}
+  {\normalsize\bfseries\color{DarkText}}
+  {}
+  {0pt}
+  {#1}
+\titlespacing*{\section}{0pt}{1.6em}{0.9em}
+\titlespacing*{\subsection}{0pt}{1.1em}{0.45em}
+\titlespacing*{\subsubsection}{0pt}{0.8em}{0.25em}
+
+\tcbset{
+  institutionalbox/.style={
+    enhanced,
+    boxrule=0.35pt,
+    arc=1.5mm,
+    left=7pt,
+    right=7pt,
+    top=6pt,
+    bottom=6pt,
+    colframe=SoftGray,
+    coltext=DarkText,
+    before skip=0.7em,
+    after skip=0.7em
+  }
+}
+\newcommand{\pastelrule}[1]{\par\noindent{\color{#1}\rule{\textwidth}{1.1pt}}\par}
+\newcommand{\tableheadcolor}{\rowcolor{\SectionTone!55}}
 
 \hypersetup{
   colorlinks=true,
@@ -39,36 +98,45 @@
 \rhead{Propuesta institucional}
 \cfoot{\thepage}
 \renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\headrule}{\hbox to\headwidth{\color{SoftGray}\leaders\hrule height \headrulewidth\hfill}}
 
-\newcommand{\proposalnote}[1]{\vspace{0.3em}\noindent\textit{#1}\vspace{0.3em}}
+\newcommand{\proposalnote}[1]{\begin{tcolorbox}[institutionalbox,colback=PastelLavender!28,colframe=PastelLavender]\textit{#1}\end{tcolorbox}}
 \newcommand{\cop}{COP}
 
 \begin{document}
 
 \begin{titlepage}
   \centering
-  \vspace*{2.5cm}
+  \vspace*{1.8cm}
+  \pastelrule{PastelBlue}
+  \vspace{0.8cm}
   {\Large\textbf{Soundpainting Colombia}\par}
-  \vspace{1.4cm}
-  {\Huge\textbf{Tunjo Fest Soundpainting}\par}
-  \vspace{0.5cm}
-  {\Large Propuesta artística, pedagógica y comunitaria\par}
   \vspace{1.2cm}
+  {\Huge\textbf{Tunjo Fest Soundpainting}\par}
+  \vspace{0.45cm}
+  {\Large\color{MutedText} Propuesta artística, pedagógica y comunitaria\par}
+  \vspace{0.75cm}
   {\large Dirigida a la Casa de la Cultura de Facatativá\par}
-  \vfill
+  \vspace{0.8cm}
+  \begin{tcolorbox}[institutionalbox,colback=PastelBlue!32,colframe=PastelBlue,width=0.86\textwidth]
+  \centering
   \begin{tabular}{@{}ll@{}}
     \textbf{Colectivo proponente:} & Soundpainting Colombia \\
     \textbf{Ensamble invitado:} & Ensamble Liminal \\
     \textbf{Formato:} & Formación, ensamble interdisciplinar y función pública \\
     \textbf{Contexto de presentación:} & Tunjo Fest \\
   \end{tabular}
+  \end{tcolorbox}
   \vfill
+  \pastelrule{PastelPink}
+  \vspace{0.35cm}
   {\large Facatativá, Colombia\par}
 \end{titlepage}
 
 \tableofcontents
 \newpage
 
+\setsectioncolor{PastelBlue}
 \section{Presentación general de la propuesta}
 
 \subsection{Nombre, descripción y destinatarios}
@@ -85,6 +153,7 @@ Está dirigida a estudiantes de las escuelas de formación de la Casa de la Cult
 
 \begin{tabularx}{\textwidth}{@{}L{0.34\textwidth}Y@{}}
 \toprule
+\tableheadcolor
 \textbf{Aspecto} & \textbf{Descripción} \\
 \midrule
 Colectivo proponente & Soundpainting Colombia. \\
@@ -130,6 +199,7 @@ Desarrollar una experiencia de Soundpainting en Facatativá mediante formación,
   \item Fortalecer la programación escénica y cultural en el marco de Tunjo Fest.
 \end{itemize}
 
+\setsectioncolor{PastelBlue}
 \section{Justificación cultural, social y territorial}
 
 \subsection{Pertinencia del Soundpainting}
@@ -154,6 +224,7 @@ En el marco de Tunjo Fest, la propuesta funciona como una actividad artística, 
 
 A través de la improvisación, la composición en vivo y la escucha colectiva, el proyecto favorece el diálogo entre escuelas artísticas, amplía las posibilidades escénicas del evento mediante la inclusión del circo y la integración potencial de medios audiovisuales, artes visuales, pintura y dibujo, y contribuye a visibilizar los procesos formativos de la Casa de la Cultura dentro de la agenda cultural municipal.
 
+\setsectioncolor{PastelGreen}
 \section{Diseño artístico, pedagógico y metodológico}
 
 \subsection{Descripción de la presentación}
@@ -180,6 +251,7 @@ La propuesta puede trabajar con hasta 7 áreas o grupos de formación, según di
 {\small
 \begin{longtable}{@{}L{0.25\textwidth}L{0.28\textwidth}L{0.41\textwidth}@{}}
 \toprule
+\tableheadcolor
 \textbf{Área o grupo} & \textbf{Participación estimada} & \textbf{Observaciones} \\
 \midrule
 \endhead
@@ -204,6 +276,7 @@ La propuesta contempla tres modalidades. Cada una ajusta el alcance formativo, e
 {\small
 \begin{tabularx}{\textwidth}{@{}L{0.23\textwidth}L{0.13\textwidth}Y Y Y@{}}
 \toprule
+\tableheadcolor
 \textbf{Modalidad} & \textbf{Escala} & \textbf{Formación} & \textbf{Ensamble} & \textbf{Función} \\
 \midrule
 Descubriendo el lenguaje & Pequeña & 1 sesión de 2 horas por área & 2 horas & 60 a 90 minutos \\
@@ -257,6 +330,7 @@ En este espacio se definirán las áreas participantes, el número aproximado de
 
 También se revisarán las condiciones de participación en la función final y los requerimientos específicos de proyección, sonido, instrumentos o materiales visuales. La programación deberá ajustarse a las dinámicas reales de la Casa de la Cultura, los docentes, los estudiantes y los espacios disponibles. Por esta razón, los horarios definitivos se construirán de común acuerdo, según la modalidad seleccionada y la capacidad operativa de la institución.
 
+\setsectioncolor{PastelYellow}
 \section{Producción, espacios y requerimientos técnicos}
 
 \subsection{Espacios de formación, ensayo y función}
@@ -272,6 +346,7 @@ La función principal se proyecta para la tarima principal de Tunjo Fest, en oct
 {\small
 \begin{tabularx}{\textwidth}{@{}L{0.32\textwidth}Y@{}}
 \toprule
+\tableheadcolor
 \textbf{Componente} & \textbf{Requerimiento} \\
 \midrule
 Teclado & Salida estéreo L/R por TRS o caja directa. \\
@@ -288,6 +363,7 @@ SoundPainters & Iluminación frontal suficiente para que las señas sean visible
 
 El rider técnico definitivo se entregará o ajustará después de conocer el espacio de función y la modalidad seleccionada.
 
+\setsectioncolor{PastelLavender}
 \section{Presupuesto flexible y condiciones de implementación}
 
 \subsection{Criterios generales del presupuesto}
@@ -324,6 +400,7 @@ Los siguientes valores corresponden al presupuesto base estimado para cada modal
 {\small
 \begin{tabularx}{\textwidth}{@{}L{0.16\textwidth}Y Y Y Y@{}}
 \toprule
+\tableheadcolor
 \textbf{Número de áreas} & \textbf{Formación con viáticos} & \textbf{Ensamble con viáticos} & \textbf{Función} & \textbf{Total consolidado} \\
 \midrule
 4 áreas & \$1.360.000 \cop & \$2.540.000 \cop & \$8.400.000 \cop & \$12.300.000 \cop \\
@@ -346,6 +423,7 @@ Los siguientes valores corresponden al presupuesto base estimado para cada modal
 {\small
 \begin{tabularx}{\textwidth}{@{}L{0.16\textwidth}Y Y Y Y@{}}
 \toprule
+\tableheadcolor
 \textbf{Número de áreas} & \textbf{Formación con viáticos} & \textbf{Ensamble con viáticos} & \textbf{Función} & \textbf{Total consolidado} \\
 \midrule
 4 áreas & \$2.720.000 \cop & \$2.540.000 \cop & \$8.400.000 \cop & \$13.660.000 \cop \\
@@ -368,6 +446,7 @@ Los siguientes valores corresponden al presupuesto base estimado para cada modal
 {\small
 \begin{tabularx}{\textwidth}{@{}L{0.16\textwidth}Y Y Y Y@{}}
 \toprule
+\tableheadcolor
 \textbf{Número de áreas} & \textbf{Formación con viáticos} & \textbf{Ensamble con viáticos} & \textbf{Función} & \textbf{Total consolidado} \\
 \midrule
 4 áreas & \$5.440.000 \cop & \$5.080.000 \cop & \$8.400.000 \cop & \$18.920.000 \cop \\
@@ -383,6 +462,7 @@ Los siguientes valores corresponden al presupuesto base estimado para cada modal
 {\small
 \begin{tabularx}{\textwidth}{@{}L{0.24\textwidth}L{0.14\textwidth}L{0.15\textwidth}Y Y@{}}
 \toprule
+\tableheadcolor
 \textbf{Modalidad} & \textbf{Escala} & \textbf{Rango de áreas} & \textbf{Total mínimo estimado} & \textbf{Total máximo estimado} \\
 \midrule
 Descubriendo el lenguaje & Pequeña & 4 a 7 áreas & \$12.300.000 \cop & \$13.320.000 \cop \\
@@ -403,6 +483,7 @@ La cobertura audiovisual puede contratarse en dos modalidades:
 {\small
 \begin{tabularx}{\textwidth}{@{}L{0.28\textwidth}Y L{0.22\textwidth}@{}}
 \toprule
+\tableheadcolor
 \textbf{Modalidad de cobertura audiovisual} & \textbf{Alcance} & \textbf{Valor estimado} \\
 \midrule
 Registro audiovisual con entrega de material en bruto & Registro de 4 sesiones entre semana de 2 horas cada una y una jornada final de hasta 6 horas durante el fin de semana. Entrega de material en bruto. & \$1.100.000 \cop \\
@@ -420,6 +501,7 @@ La cobertura audiovisual no está incluida en el presupuesto base de las modalid
 {\scriptsize
 \begin{tabularx}{\textwidth}{@{}L{0.23\textwidth}L{0.12\textwidth}Y Y Y@{}}
 \toprule
+\tableheadcolor
 \textbf{Modalidad} & \textbf{Escala} & \textbf{Total base estimado} & \textbf{Con registro en bruto} & \textbf{Con material editado} \\
 \midrule
 Descubriendo el lenguaje & Pequeña & \$12.300.000 a \$13.320.000 \cop & \$13.400.000 a \$14.420.000 \cop & \$13.900.000 a \$14.920.000 \cop \\
@@ -438,6 +520,7 @@ Estos artistas tendrían honorarios propios y pueden sumarse a cualquiera de las
 {\small
 \begin{tabularx}{\textwidth}{@{}L{0.38\textwidth}Y@{}}
 \toprule
+\tableheadcolor
 \textbf{Concepto} & \textbf{Valor} \\
 \midrule
 1 artista invitado especial & \$600.000 \cop \\
@@ -449,6 +532,7 @@ Estos artistas tendrían honorarios propios y pueden sumarse a cualquiera de las
 
 \begin{tabularx}{\textwidth}{@{}L{0.28\textwidth}Y@{}}
 \toprule
+\tableheadcolor
 \textbf{Campo} & \textbf{Información por completar} \\
 \midrule
 Artista invitado especial 1 & Nombre: \rule{0.55\textwidth}{0.4pt} \\
@@ -467,10 +551,13 @@ Breve descripción & \rule{0.58\textwidth}{0.4pt} \\
 
 \subsection{Cierre institucional}
 
+\begin{tcolorbox}[institutionalbox,colback=PastelLavender!24,colframe=PastelLavender]
 Tunjo Fest Soundpainting propone una experiencia artística, pedagógica y comunitaria para la Casa de la Cultura de Facatativá, mediante una práctica contemporánea, participativa e interdisciplinar.
 
 La propuesta busca dejar un resultado escénico visible, fortalecer el intercambio entre artistas invitados y artistas locales, y aportar a la programación cultural municipal.
+\end{tcolorbox}
 
+\setsectioncolor{PastelLavender}
 \section{Anexo presupuestal}
 
 \subsection{Costos unitarios}
@@ -480,6 +567,7 @@ La propuesta busca dejar un resultado escénico visible, fortalecer el intercamb
 {\small
 \begin{tabularx}{\textwidth}{@{}L{0.45\textwidth}Y@{}}
 \toprule
+\tableheadcolor
 \textbf{Concepto} & \textbf{Valor unitario} \\
 \midrule
 Hora de taller & \$150.000 \cop \\
@@ -526,6 +614,7 @@ El ensamble se desglosa en honorarios de ensamble y viáticos de ensamble. Los h
 {\small
 \begin{tabularx}{\textwidth}{@{}L{0.23\textwidth}L{0.14\textwidth}L{0.14\textwidth}Y Y Y@{}}
 \toprule
+\tableheadcolor
 \textbf{Modalidad} & \textbf{Horas} & \textbf{Sesiones} & \textbf{Honorarios} & \textbf{Viáticos} & \textbf{Total} \\
 \midrule
 Descubriendo el lenguaje & 2 horas & 1 sesión & \$2.500.000 \cop & \$40.000 \cop & \$2.540.000 \cop \\
@@ -546,6 +635,7 @@ Costo por área: \$300.000 \cop de taller + \$40.000 \cop de viáticos = \$340.0
 {\scriptsize
 \begin{tabularx}{\textwidth}{@{}L{0.13\textwidth}Y Y Y Y Y Y@{}}
 \toprule
+\tableheadcolor
 \textbf{Número de áreas} & \textbf{Formación} & \textbf{Viáticos de formación} & \textbf{Honorarios de ensamble} & \textbf{Viáticos de ensamble} & \textbf{Función} & \textbf{Total} \\
 \midrule
 4 áreas & \$1.200.000 \cop & \$160.000 \cop & \$2.500.000 \cop & \$40.000 \cop & \$8.400.000 \cop & \$12.300.000 \cop \\
@@ -565,6 +655,7 @@ Costo por área: \$600.000 \cop de taller + \$80.000 \cop de viáticos = \$680.0
 {\scriptsize
 \begin{tabularx}{\textwidth}{@{}L{0.13\textwidth}Y Y Y Y Y Y@{}}
 \toprule
+\tableheadcolor
 \textbf{Número de áreas} & \textbf{Formación} & \textbf{Viáticos de formación} & \textbf{Honorarios de ensamble} & \textbf{Viáticos de ensamble} & \textbf{Función} & \textbf{Total} \\
 \midrule
 4 áreas & \$2.400.000 \cop & \$320.000 \cop & \$2.500.000 \cop & \$40.000 \cop & \$8.400.000 \cop & \$13.660.000 \cop \\
@@ -584,6 +675,7 @@ Costo por área: \$1.200.000 \cop de taller + \$160.000 \cop de viáticos = \$1.
 {\scriptsize
 \begin{tabularx}{\textwidth}{@{}L{0.13\textwidth}Y Y Y Y Y Y@{}}
 \toprule
+\tableheadcolor
 \textbf{Número de áreas} & \textbf{Formación} & \textbf{Viáticos de formación} & \textbf{Honorarios de ensamble} & \textbf{Viáticos de ensamble} & \textbf{Función} & \textbf{Total} \\
 \midrule
 4 áreas & \$4.800.000 \cop & \$640.000 \cop & \$5.000.000 \cop & \$80.000 \cop & \$8.400.000 \cop & \$18.920.000 \cop \\
@@ -599,6 +691,7 @@ Costo por área: \$1.200.000 \cop de taller + \$160.000 \cop de viáticos = \$1.
 {\small
 \begin{longtable}{@{}L{0.27\textwidth}L{0.24\textwidth}L{0.43\textwidth}@{}}
 \toprule
+\tableheadcolor
 \textbf{Actividad a registrar} & \textbf{Duración estimada} & \textbf{Observaciones} \\
 \midrule
 \endhead
@@ -617,6 +710,7 @@ Jornada final de fin de semana & Hasta 6 horas de disponibilidad & Registro de u
 {\small
 \begin{tabularx}{\textwidth}{@{}L{0.32\textwidth}L{0.24\textwidth}Y@{}}
 \toprule
+\tableheadcolor
 \textbf{Modalidad} & \textbf{Valor estimado} & \textbf{Entrega} \\
 \midrule
 Registro con material en bruto & \$1.100.000 \cop & Entrega del material grabado en bruto. \\

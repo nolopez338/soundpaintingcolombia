@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SoundPaintingColombia | Theater Group Template</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="navbar" aria-label="Main navigation">
+      <a class="logo" href="#top" aria-label="SoundPaintingColombia home">SoundPaintingColombia</a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-menu">
+        <span class="menu-toggle__bar"></span>
+        <span class="menu-toggle__bar"></span>
+        <span class="menu-toggle__bar"></span>
+        <span class="visually-hidden">Toggle navigation menu</span>
+      </button>
+      <ul class="nav-menu" id="main-menu">
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#slider">Highlights</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero" id="hero">
+      <div class="section-container hero__content">
+        <p class="eyebrow">Contemporary theater · performance · improvisation</p>
+        <h1>A first web template for SoundPaintingColombia.</h1>
+        <p class="hero__intro">
+          Placeholder introduction for a theater and performance group exploring soundpainting,
+          collective creation, movement, music, and live composition.
+        </p>
+        <a class="button" href="#slider">Explore placeholder slides</a>
+      </div>
+    </section>
+
+    <section class="info-slider-section" id="slider" aria-labelledby="slider-title">
+      <div class="section-container">
+        <div class="section-heading">
+          <p class="eyebrow">Main information slider</p>
+          <h2 id="slider-title">Group information and future content areas</h2>
+          <p>
+            This carousel is prepared for around 20 content pages. Replace these placeholder
+            titles and descriptions as the project develops.
+          </p>
+        </div>
+
+        <div class="slider" aria-roledescription="carousel" aria-label="SoundPaintingColombia information carousel">
+          <div class="slider__viewport">
+            <div class="slider__track" id="slider-track"></div>
+          </div>
+
+          <div class="slider__controls" aria-label="Slider controls">
+            <button class="slider__button" id="prev-slide" type="button" aria-label="Previous slide">Previous</button>
+            <p class="slider__counter" id="slide-counter" aria-live="polite">Slide 1 of 20</p>
+            <button class="slider__button" id="next-slide" type="button" aria-label="Next slide">Next</button>
+          </div>
+
+          <div class="slider__dots" id="slider-dots" aria-label="Slide indicators"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" id="about">
+      <div class="section-container two-column">
+        <div>
+          <p class="eyebrow">About</p>
+          <h2>About the group</h2>
+        </div>
+        <div>
+          <p>
+            Placeholder text describing SoundPaintingColombia, its artistic interests, working
+            methods, collaborators, and context. This area can later become the official group story.
+          </p>
+          <p>
+            Keep this copy temporary while the group defines final voice, language, and public information.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section content-section--muted" id="projects">
+      <div class="section-container">
+        <div class="section-heading">
+          <p class="eyebrow">Projects and performances</p>
+          <h2>Current placeholder project areas</h2>
+        </div>
+        <div class="cards-grid">
+          <article class="card">
+            <h3>Performance format</h3>
+            <p>Short placeholder description for a future performance, show, or stage experiment.</p>
+          </article>
+          <article class="card">
+            <h3>Workshop format</h3>
+            <p>Short placeholder description for training sessions, laboratories, or community workshops.</p>
+          </article>
+          <article class="card">
+            <h3>Research format</h3>
+            <p>Short placeholder description for artistic research, documentation, and creation processes.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" id="contact">
+      <div class="section-container two-column">
+        <div>
+          <p class="eyebrow">Contact</p>
+          <h2>Start a conversation</h2>
+        </div>
+        <div class="contact-box">
+          <p>Email: <a href="mailto:contact@example.com">contact@example.com</a></p>
+          <p>Location: Colombia · placeholder venue or city</p>
+          <p>Social media links and booking details can be added later.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; <span id="current-year"></span> SoundPaintingColombia. Placeholder website template.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

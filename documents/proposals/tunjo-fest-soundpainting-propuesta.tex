@@ -75,7 +75,8 @@
 % Entradas principales del índice con el color funcional de cada sección.
 \makeatletter
 \newcommand{\TOCSectionTone}{PastelBlue}
-\renewcommand{\numberline}[1]{#1\enspace}
+% El índice omite numeración; la numeración se mantiene en el cuerpo del documento.
+\renewcommand{\numberline}[1]{}
 \renewcommand*{\l@section}[2]{%
   \ifnum \c@tocdepth >\z@
     \addpenalty{\@secpenalty}%
@@ -102,7 +103,7 @@
       \end{tcolorbox}%
     \endgroup
   \fi}
-\renewcommand*{\l@subsection}{\@dottedtocline{2}{1.8em}{2.9em}}
+\renewcommand*{\l@subsection}{\@dottedtocline{2}{1.4em}{0em}}
 \makeatother
 
 % Sección principal de propuesta: sincroniza color visual y color de TOC.

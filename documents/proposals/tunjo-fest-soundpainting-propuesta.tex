@@ -8,7 +8,7 @@
 \usepackage{array,booktabs,longtable,tabularx}
 \usepackage[table]{xcolor}
 \usepackage[most]{tcolorbox}
-\usepackage{titlesec}
+\usepackage[explicit]{titlesec}
 \usepackage{enumitem}
 \usepackage{fancyhdr}
 \usepackage{hyperref}
@@ -82,6 +82,7 @@
 \setcounter{secnumdepth}{2}
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{6pt}
+\setlength{\headheight}{24pt}
 \setlength{\tabcolsep}{4pt}
 \renewcommand{\arraystretch}{1.18}
 \newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
@@ -104,6 +105,7 @@
 \newcommand{\cop}{COP}
 
 \begin{document}
+\pagenumbering{gobble}
 
 \begin{titlepage}
   \centering
@@ -133,8 +135,10 @@
   {\large Facatativá, Colombia\par}
 \end{titlepage}
 
+\pagenumbering{roman}
 \tableofcontents
 \newpage
+\pagenumbering{arabic}
 
 \setsectioncolor{PastelBlue}
 \section{Presentación general de la propuesta}

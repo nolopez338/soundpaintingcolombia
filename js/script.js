@@ -1,24 +1,44 @@
 const slides = [
-  { title: 'Sobre SoundPaintingColombia', description: 'Contenido provisional sobre el grupo, sus colaboradores y su enfoque artístico actual.' },
-  { title: '¿Qué es el Soundpainting?', description: 'Descripción provisional del Soundpainting como lenguaje de señas para componer en vivo y orientar a los intérpretes.' },
-  { title: 'Creación escénica en vivo', description: 'Notas provisionales sobre creación escénica, presencia, dramaturgia y práctica colectiva.' },
-  { title: 'Teatro, música y movimiento', description: 'Texto provisional sobre la relación entre sonido, gesto, movimiento y espacio.' },
-  { title: 'Improvisación colectiva', description: 'Descripción provisional de la improvisación grupal como proceso escénico compartido.' },
-  { title: 'Talleres de formación', description: 'Información provisional para futuras clases, laboratorios y sesiones de iniciación.' },
-  { title: 'Funciones y muestras', description: 'Descripción provisional para obras escénicas, ensayos abiertos y encuentros de composición en vivo.' },
-  { title: 'Procesos comunitarios', description: 'Texto provisional para colaboraciones locales, encuentros comunitarios y programas públicos.' },
-  { title: 'Laboratorio de creación', description: 'Contenido provisional para laboratorios temporales de creación y exploración interdisciplinar.' },
-  { title: 'Investigación artística', description: 'Notas provisionales sobre investigación, documentación y experimentación.' },
-  { title: 'Ensamble interdisciplinar', description: 'Contenido provisional sobre el trabajo entre artistas de distintas disciplinas y lenguajes escénicos.' },
-  { title: 'Lenguaje de señas para la escena', description: 'Descripción provisional para guías, materiales de aprendizaje y recursos pedagógicos futuros.' },
-  { title: 'Composición en tiempo real', description: 'Área provisional para explicar prácticas de composición escénica en vivo.' },
-  { title: 'Dirección escénica en vivo', description: 'Información provisional sobre la orientación de acciones, materiales y decisiones durante la escena.' },
-  { title: 'Procesos pedagógicos', description: 'Texto provisional para metodologías de formación, conversaciones con públicos y espacios de aprendizaje.' },
-  { title: 'Circulación artística', description: 'Área provisional para agenda, eventos, funciones y anuncios de talleres.' },
-  { title: 'Encuentros y colaboraciones', description: 'Espacio provisional para artistas, invitados, mentores y organizaciones aliadas.' },
-  { title: 'Archivo del proceso', description: 'Área provisional para notas de proceso, fotografías, referencias audiovisuales y documentación.' },
-  { title: 'Material audiovisual', description: 'Contenido provisional para videos, registros, piezas sonoras y recursos de prensa.' },
-  { title: 'Próximos pasos', description: 'Diapositiva provisional reservada para la siguiente área de información cuando el sitio crezca.' }
+  {
+    title: '¿Qué es el Soundpainting?',
+    description: 'Un lenguaje de señas para componer en tiempo real. La dirección propone entradas, silencios, repeticiones, variaciones y relaciones escénicas que los intérpretes responden de inmediato.'
+  },
+  {
+    title: 'Sinopsis del espectáculo',
+    description: 'Una función interdisciplinar donde sonido, cuerpo, voz, texto, imagen y acción física se organizan frente al público mediante improvisación dirigida.'
+  },
+  {
+    title: 'Disciplinas involucradas',
+    description: 'La propuesta integra música, danza, teatro, circo, literatura, artes visuales, medios audiovisuales, voz, movimiento y performance.'
+  },
+  {
+    title: 'Público objetivo',
+    description: 'Dirigido a estudiantes, docentes, artistas locales, jóvenes, familias, comunidad de Facatativá y público asistente a procesos culturales y escénicos.'
+  },
+  {
+    title: 'Trayectoria',
+    description: 'El Ensamble Liminal reúne artistas de distintas disciplinas que trabajan desde la escucha colectiva, la improvisación escénica y la composición en tiempo real.'
+  },
+  {
+    title: 'Propuesta escénica',
+    description: 'La escena puede organizarse por momentos de dirección, cruces disciplinares, participación local y cierre colectivo con un ensamble ampliado.'
+  },
+  {
+    title: 'Materiales de archivo',
+    description: 'Fotografías, textos, registros sonoros, música, video y memoria territorial pueden convertirse en detonantes para nuevas composiciones en vivo.'
+  },
+  {
+    title: 'Ideas escénicas',
+    description: 'Topics, paletas y texturas funcionan como recursos abiertos: no cierran la obra, sino que alimentan decisiones instantáneas durante la presentación.'
+  },
+  {
+    title: 'Invitados especiales',
+    description: 'La propuesta puede sumar artistas invitados especializados, incluyendo circo u otros lenguajes, para fortalecer la presencia escénica y el diálogo local.'
+  },
+  {
+    title: 'Formatos posibles',
+    description: 'Puede realizarse como función pública, laboratorio de creación, proceso formativo, ensamble interdisciplinar o experiencia situada con materiales de archivo.'
+  }
 ];
 
 const track = document.querySelector('#slider-track');

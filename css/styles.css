@@ -169,6 +169,81 @@ h3 {
   font-size: 1.25rem;
 }
 
+
+.hero__context {
+  max-width: 680px;
+  color: var(--color-accent-dark);
+  font-size: 1rem;
+  font-weight: 800;
+}
+
+.members-details {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 1.5rem;
+  box-shadow: var(--shadow-soft);
+  overflow: hidden;
+}
+
+.members-details summary {
+  padding: 1.25rem 1.5rem;
+  color: var(--color-accent-dark);
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.members-details summary:focus-visible {
+  outline: 3px solid rgba(143, 61, 47, 0.35);
+  outline-offset: -3px;
+}
+
+.members-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  padding: 0 1.5rem 1.5rem;
+}
+
+.member-card {
+  display: flex;
+  min-height: 100%;
+  flex-direction: column;
+  padding: 1.25rem;
+  background: var(--color-background);
+  border: 1px solid var(--color-border);
+  border-radius: 1.25rem;
+}
+
+.member-card__image {
+  width: 4.5rem;
+  height: 4.5rem;
+  display: grid;
+  place-items: center;
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, rgba(143, 61, 47, 0.14), rgba(98, 39, 31, 0.24));
+  color: var(--color-accent-dark);
+  border: 1px solid rgba(143, 61, 47, 0.2);
+  border-radius: 999px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+}
+
+.member-card__name {
+  margin-bottom: 0.25rem;
+}
+
+.member-card__handle {
+  margin-bottom: 0.75rem;
+  color: var(--color-accent);
+  font-size: 0.95rem;
+  font-weight: 800;
+}
+
+.member-card__bio {
+  margin-bottom: 0;
+  color: var(--color-text-soft);
+}
+
 .hero__intro {
   max-width: 680px;
   color: var(--color-text-soft);
@@ -371,7 +446,8 @@ h3 {
 
   .slider__controls,
   .two-column,
-  .cards-grid {
+  .cards-grid,
+  .members-grid {
     grid-template-columns: 1fr;
   }
 

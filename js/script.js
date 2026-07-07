@@ -1,24 +1,24 @@
 const slides = [
-  { title: 'About the group', description: 'Placeholder summary of the collective, its collaborators, and its current artistic focus.' },
-  { title: 'Soundpainting language', description: 'Placeholder description of the live composing language and how it guides performers.' },
-  { title: 'Theater creation', description: 'Placeholder notes about theater-making, stage presence, dramaturgy, and collective practice.' },
-  { title: 'Music and movement', description: 'Placeholder text about the relationship between sound, gesture, movement, and space.' },
-  { title: 'Collective improvisation', description: 'Placeholder description of group improvisation as a shared performance process.' },
-  { title: 'Workshops', description: 'Placeholder information for future classes, laboratories, and introductory sessions.' },
-  { title: 'Performances', description: 'Placeholder description for staged works, open rehearsals, and live composition events.' },
-  { title: 'Community projects', description: 'Placeholder text for local collaborations, community encounters, and public programs.' },
-  { title: 'Training process', description: 'Placeholder overview of practice routines, ensemble training, and skill development.' },
-  { title: 'Artistic research', description: 'Placeholder notes about investigation, documentation, and experimentation.' },
-  { title: 'Creative laboratories', description: 'Placeholder content for temporary creation labs and interdisciplinary exploration.' },
-  { title: 'Educational resources', description: 'Placeholder description for guides, learning materials, and future downloads.' },
-  { title: 'Collaborators', description: 'Placeholder area for artists, invited guests, mentors, and partner organizations.' },
-  { title: 'Residencies', description: 'Placeholder information for creation residencies and long-form research periods.' },
-  { title: 'Public talks', description: 'Placeholder text for conferences, artist talks, and audience conversations.' },
-  { title: 'Documentation', description: 'Placeholder area for archives, process notes, photographs, and video references.' },
-  { title: 'Upcoming agenda', description: 'Placeholder agenda for dates, events, performances, and workshop announcements.' },
-  { title: 'Press kit', description: 'Placeholder content for short bios, technical notes, contact details, and media resources.' },
-  { title: 'Support the group', description: 'Placeholder description for partnerships, sponsorships, donations, and shared resources.' },
-  { title: 'Future content', description: 'Placeholder slide reserved for the next information area as the website grows.' }
+  { title: 'Sobre SoundPaintingColombia', description: 'Contenido provisional sobre el grupo, sus colaboradores y su enfoque artístico actual.' },
+  { title: '¿Qué es el Soundpainting?', description: 'Descripción provisional del Soundpainting como lenguaje de señas para componer en vivo y orientar a los intérpretes.' },
+  { title: 'Creación escénica en vivo', description: 'Notas provisionales sobre creación escénica, presencia, dramaturgia y práctica colectiva.' },
+  { title: 'Teatro, música y movimiento', description: 'Texto provisional sobre la relación entre sonido, gesto, movimiento y espacio.' },
+  { title: 'Improvisación colectiva', description: 'Descripción provisional de la improvisación grupal como proceso escénico compartido.' },
+  { title: 'Talleres de formación', description: 'Información provisional para futuras clases, laboratorios y sesiones de iniciación.' },
+  { title: 'Funciones y muestras', description: 'Descripción provisional para obras escénicas, ensayos abiertos y encuentros de composición en vivo.' },
+  { title: 'Procesos comunitarios', description: 'Texto provisional para colaboraciones locales, encuentros comunitarios y programas públicos.' },
+  { title: 'Laboratorio de creación', description: 'Contenido provisional para laboratorios temporales de creación y exploración interdisciplinar.' },
+  { title: 'Investigación artística', description: 'Notas provisionales sobre investigación, documentación y experimentación.' },
+  { title: 'Ensamble interdisciplinar', description: 'Contenido provisional sobre el trabajo entre artistas de distintas disciplinas y lenguajes escénicos.' },
+  { title: 'Lenguaje de señas para la escena', description: 'Descripción provisional para guías, materiales de aprendizaje y recursos pedagógicos futuros.' },
+  { title: 'Composición en tiempo real', description: 'Área provisional para explicar prácticas de composición escénica en vivo.' },
+  { title: 'Dirección escénica en vivo', description: 'Información provisional sobre la orientación de acciones, materiales y decisiones durante la escena.' },
+  { title: 'Procesos pedagógicos', description: 'Texto provisional para metodologías de formación, conversaciones con públicos y espacios de aprendizaje.' },
+  { title: 'Circulación artística', description: 'Área provisional para agenda, eventos, funciones y anuncios de talleres.' },
+  { title: 'Encuentros y colaboraciones', description: 'Espacio provisional para artistas, invitados, mentores y organizaciones aliadas.' },
+  { title: 'Archivo del proceso', description: 'Área provisional para notas de proceso, fotografías, referencias audiovisuales y documentación.' },
+  { title: 'Material audiovisual', description: 'Contenido provisional para videos, registros, piezas sonoras y recursos de prensa.' },
+  { title: 'Próximos pasos', description: 'Diapositiva provisional reservada para la siguiente área de información cuando el sitio crezca.' }
 ];
 
 const track = document.querySelector('#slider-track');
@@ -36,10 +36,10 @@ function createSlides() {
   slides.forEach((slide, index) => {
     const slideElement = document.createElement('article');
     slideElement.className = 'slide';
-    slideElement.setAttribute('aria-roledescription', 'slide');
-    slideElement.setAttribute('aria-label', `${index + 1} of ${slides.length}`);
+    slideElement.setAttribute('aria-roledescription', 'diapositiva');
+    slideElement.setAttribute('aria-label', `${index + 1} de ${slides.length}`);
     slideElement.innerHTML = `
-      <p class="slide__number">Slide ${index + 1}</p>
+      <p class="slide__number">Diapositiva ${index + 1}</p>
       <h3>${slide.title}</h3>
       <p>${slide.description}</p>
     `;
@@ -48,7 +48,7 @@ function createSlides() {
     const dot = document.createElement('button');
     dot.className = 'slider__dot';
     dot.type = 'button';
-    dot.setAttribute('aria-label', `Go to slide ${index + 1}`);
+    dot.setAttribute('aria-label', `Ir a la diapositiva ${index + 1}`);
     dot.addEventListener('click', () => goToSlide(index));
     dotsContainer.appendChild(dot);
   });
@@ -56,7 +56,7 @@ function createSlides() {
 
 function updateSlider() {
   track.style.transform = `translateX(-${currentSlide * 100}%)`;
-  counter.textContent = `Slide ${currentSlide + 1} of ${slides.length}`;
+  counter.textContent = `Diapositiva ${currentSlide + 1} de ${slides.length}`;
 
   document.querySelectorAll('.slider__dot').forEach((dot, index) => {
     dot.setAttribute('aria-current', index === currentSlide ? 'true' : 'false');

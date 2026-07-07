@@ -12,32 +12,32 @@ const slides = [
     description: 'La propuesta integra música, danza, teatro, circo, literatura, artes visuales, medios audiovisuales, voz, movimiento y performance.'
   },
   {
-    title: 'Público objetivo',
-    description: 'Dirigido a estudiantes, docentes, artistas locales, jóvenes, familias, comunidad de Facatativá y público asistente a procesos culturales y escénicos.'
+    title: 'Formación, ensamble y presentación',
+    description: 'Tres líneas de trabajo permiten compartir el lenguaje, construir prácticas colectivas y presentar composiciones escénicas en tiempo real.'
   },
   {
     title: 'Trayectoria',
     description: 'El Ensamble Liminal reúne artistas de distintas disciplinas que trabajan desde la escucha colectiva, la improvisación escénica y la composición en tiempo real.'
   },
   {
-    title: 'Propuesta escénica',
-    description: 'La escena puede organizarse por momentos de dirección, cruces disciplinares, participación local y cierre colectivo con un ensamble ampliado.'
+    title: 'Práctica de ensamble',
+    description: 'El trabajo colectivo organiza entradas, salidas, pausas, transiciones y relaciones escénicas entre intérpretes de distintas disciplinas.'
   },
   {
-    title: 'Materiales de archivo',
-    description: 'Fotografías, textos, registros sonoros, música, video y memoria territorial pueden convertirse en detonantes para nuevas composiciones en vivo.'
+    title: 'Materiales creativos',
+    description: 'Sonido, cuerpo, voz, texto, imagen, movimiento y acción física pueden convertirse en detonantes para nuevas composiciones en vivo.'
   },
   {
     title: 'Ideas escénicas',
     description: 'Topics, paletas y texturas funcionan como recursos abiertos: no cierran la obra, sino que alimentan decisiones instantáneas durante la presentación.'
   },
   {
-    title: 'Invitados especiales',
-    description: 'La propuesta puede sumar artistas invitados especializados, incluyendo circo u otros lenguajes, para fortalecer la presencia escénica y el diálogo local.'
+    title: 'Adaptación al contexto',
+    description: 'La metodología puede ajustarse a procesos educativos, culturales, comunitarios y escénicos sin perder el eje de la creación interdisciplinar.'
   },
   {
     title: 'Formatos posibles',
-    description: 'Puede realizarse como función pública, laboratorio de creación, proceso formativo, ensamble interdisciplinar o experiencia situada con materiales de archivo.'
+    description: 'Puede realizarse como taller, laboratorio de creación, ensamble interdisciplinar, muestra final o función pública de composición en tiempo real.'
   }
 ];
 

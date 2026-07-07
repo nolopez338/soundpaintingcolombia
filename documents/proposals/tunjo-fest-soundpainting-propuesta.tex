@@ -36,13 +36,13 @@
   {\Large\bfseries\color{DarkText}}
   {}
   {0pt}
-  {\colorbox{\SectionTone}{\parbox{\dimexpr\textwidth-2\fboxsep\relax}{\strut #1}}}
+  {\colorbox{\SectionTone}{\parbox{\dimexpr\textwidth-2\fboxsep\relax}{\strut\thesection\enspace #1}}}
   [\vspace{-0.35em}{\color{\SectionTone}\titlerule[1.2pt]}]
 \titleformat{\subsection}
   {\large\bfseries\color{DarkText}}
   {}
   {0pt}
-  {#1}
+  {\thesubsection\enspace #1}
   [{\color{\SectionTone}\titlerule[0.6pt]}]
 \titleformat{\subsubsection}
   {\normalsize\bfseries\color{DarkText}}
@@ -70,6 +70,48 @@
 }
 \newcommand{\pastelrule}[1]{\par\noindent{\color{#1}\rule{\textwidth}{1.1pt}}\par}
 \newcommand{\tableheadcolor}{\rowcolor{\SectionTone!55}}
+
+
+% Entradas principales del índice con el color funcional de cada sección.
+\makeatletter
+\newcommand{\TOCSectionTone}{PastelBlue}
+% El índice omite numeración; la numeración se mantiene en el cuerpo del documento.
+\renewcommand{\numberline}[1]{}
+\renewcommand*{\l@section}[2]{%
+  \ifnum \c@tocdepth >\z@
+    \addpenalty{\@secpenalty}%
+    \addvspace{0.45em}%
+    \begingroup
+      \setlength{\fboxsep}{0pt}%
+      \noindent
+      \begin{tcolorbox}[
+        enhanced,
+        width=\linewidth,
+        boxrule=0.45pt,
+        arc=1.6mm,
+        left=6pt,
+        right=6pt,
+        top=3pt,
+        bottom=3pt,
+        colback=\TOCSectionTone!18,
+        colframe=\TOCSectionTone,
+        coltext=DarkText,
+        before skip=0pt,
+        after skip=0pt
+      ]
+        \bfseries #1\hfill\nobreak #2
+      \end{tcolorbox}%
+    \endgroup
+  \fi}
+\renewcommand*{\l@subsection}{\@dottedtocline{2}{1.4em}{0em}}
+\makeatother
+
+% Sección principal de propuesta: sincroniza color visual y color de TOC.
+\newcommand{\proposalSection}[2]{%
+  \setsectioncolor{#1}%
+  \addtocontents{toc}{\protect\renewcommand{\protect\TOCSectionTone}{#1}}%
+  \section{#2}%
+}
 
 \hypersetup{
   colorlinks=true,
@@ -140,8 +182,7 @@
 \newpage
 \pagenumbering{arabic}
 
-\setsectioncolor{PastelBlue}
-\section{Presentación general de la propuesta}
+\proposalSection{PastelBlue}{Presentación general de la propuesta}
 
 \subsection{Nombre, descripción y destinatarios}
 
@@ -203,8 +244,7 @@ Desarrollar una experiencia de Soundpainting en Facatativá mediante formación,
   \item Fortalecer la programación escénica y cultural en el marco de Tunjo Fest.
 \end{itemize}
 
-\setsectioncolor{PastelBlue}
-\section{Justificación cultural, social y territorial}
+\proposalSection{PastelBlue}{Justificación cultural, social y territorial}
 
 \subsection{Pertinencia del Soundpainting}
 
@@ -228,8 +268,7 @@ En el marco de Tunjo Fest, la propuesta funciona como una actividad artística, 
 
 A través de la improvisación, la composición en vivo y la escucha colectiva, el proyecto favorece el diálogo entre escuelas artísticas, amplía las posibilidades escénicas del evento mediante la inclusión del circo y la integración potencial de medios audiovisuales, artes visuales, pintura y dibujo, y contribuye a visibilizar los procesos formativos de la Casa de la Cultura dentro de la agenda cultural municipal.
 
-\setsectioncolor{PastelGreen}
-\section{Diseño artístico, pedagógico y metodológico}
+\proposalSection{PastelGreen}{Diseño artístico, pedagógico y metodológico}
 
 \subsection{Descripción de la presentación}
 
@@ -334,8 +373,7 @@ En este espacio se definirán las áreas participantes, el número aproximado de
 
 También se revisarán las condiciones de participación en la función final y los requerimientos específicos de proyección, sonido, instrumentos o materiales visuales. La programación deberá ajustarse a las dinámicas reales de la Casa de la Cultura, los docentes, los estudiantes y los espacios disponibles. Por esta razón, los horarios definitivos se construirán de común acuerdo, según la modalidad seleccionada y la capacidad operativa de la institución.
 
-\setsectioncolor{PastelYellow}
-\section{Producción, espacios y requerimientos técnicos}
+\proposalSection{PastelYellow}{Producción, espacios y requerimientos técnicos}
 
 \subsection{Espacios de formación, ensayo y función}
 
@@ -367,8 +405,7 @@ SoundPainters & Iluminación frontal suficiente para que las señas sean visible
 
 El rider técnico definitivo se entregará o ajustará después de conocer el espacio de función y la modalidad seleccionada.
 
-\setsectioncolor{PastelLavender}
-\section{Presupuesto flexible y condiciones de implementación}
+\proposalSection{PastelLavender}{Presupuesto flexible y condiciones de implementación}
 
 \subsection{Criterios generales del presupuesto}
 
@@ -561,8 +598,7 @@ Tunjo Fest Soundpainting propone una experiencia artística, pedagógica y comun
 La propuesta busca dejar un resultado escénico visible, fortalecer el intercambio entre artistas invitados y artistas locales, y aportar a la programación cultural municipal.
 \end{tcolorbox}
 
-\setsectioncolor{PastelLavender}
-\section{Anexo presupuestal}
+\proposalSection{PastelLavender}{Anexo presupuestal}
 
 \subsection{Costos unitarios}
 

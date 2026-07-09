@@ -119,8 +119,8 @@
         colback=\CurrentTOCSectionTone!28,
         colframe=\CurrentTOCSectionTone!70!black,
         coltext=DarkText,
-        before skip=0pt,
-        after skip=0pt
+        before skip=10pt,
+        after skip=7pt
       ]%
         \TOCSectionEntry{#1}{#2}%
       \end{tcolorbox}%
@@ -236,7 +236,6 @@
 
 \pagenumbering{roman}
 \tableofcontents
-\newpage
 \pagenumbering{arabic}
 
 \proposalSection{SectionBlue}{Presentación general de la propuesta}
@@ -624,23 +623,31 @@ Estos artistas tendrían honorarios propios y pueden sumarse a cualquiera de las
 \end{tabularx}
 }
 
-\begin{tabularx}{\textwidth}{@{}L{0.28\textwidth}Y@{}}
-\toprule
-\tableheadcolor
-\textbf{Campo} & \textbf{Información por completar} \\
-\midrule
-Artista invitado especial 1 & Nombre: \rule{0.55\textwidth}{0.4pt} \\
-Disciplina & \rule{0.62\textwidth}{0.4pt} \\
-Breve descripción & \rule{0.58\textwidth}{0.4pt} \\
-\addlinespace
-Artista invitado especial 2 & Nombre: \rule{0.55\textwidth}{0.4pt} \\
-Disciplina & \rule{0.62\textwidth}{0.4pt} \\
-Breve descripción & \rule{0.58\textwidth}{0.4pt} \\
-\addlinespace
-Artista invitado especial 3 & Nombre: \rule{0.55\textwidth}{0.4pt} \\
-Disciplina & \rule{0.62\textwidth}{0.4pt} \\
-Breve descripción & \rule{0.58\textwidth}{0.4pt} \\
-\bottomrule
+\begin{tabularx}{\textwidth}{@{}L{0.22\textwidth}L{0.23\textwidth}Y@{}}
+	\toprule
+	\tableheadcolor
+	\textbf{Artista invitado especial} & \textbf{Disciplina / perfil} & \textbf{Descripción y referencia} \\
+	\midrule
+	
+	Linda Habitante &
+	Soundpainter, cantante y looper &
+	Cantante colombiana de género alternativo. Su propuesta fusiona rap, flamenco, rock, músicas latinoamericanas y ritmos colombianos. El elemento distintivo de su trabajo es el \textit{live voice looping}. 
+	\newline \textbf{Instagram:} \url{https://www.instagram.com/lindahabitante?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==} \\
+	
+	\addlinespace
+	
+	Felipe Ortiz &
+	Soundpainter, director, improvisador, clown, acróbata y malabarista &
+	Director de La Gata Circo, con más de 25 años de trayectoria artística en improvisación, circo y creación escénica.
+	\newline \textbf{Instagram:} \url{https://www.instagram.com/felipe.moves?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==} \\
+	
+	\addlinespace
+	
+	Artista invitado especial 3 &
+	Por definir &
+	Nombre, disciplina, breve descripción y enlace por completar. \\
+	
+	\bottomrule
 \end{tabularx}
 
 \subsection{Cierre institucional}
@@ -656,9 +663,7 @@ La propuesta busca dejar un resultado escénico visible, fortalecer el intercamb
 
 \subsection{Costos unitarios}
 
-\proposalnote{Todas las cifras monetarias del anexo presupuestal están expresadas en pesos colombianos (COP).}
-
-{\small
+{
 \begin{tabularx}{\textwidth}{@{}L{0.45\textwidth}Y@{}}
 \toprule
 \tableheadcolor
@@ -705,7 +710,7 @@ La función base se calcula con 14 intérpretes:
 
 El ensamble se desglosa en honorarios de ensamble y viáticos de ensamble. Los honorarios se calculan por hora y los viáticos se calculan por sesión.
 
-{\small
+{
 \begin{tabularx}{\textwidth}{@{}L{0.23\textwidth}L{0.14\textwidth}L{0.14\textwidth}Y Y Y@{}}
 \toprule
 \tableheadcolor

@@ -17,14 +17,13 @@
 \usepackage{microtype}
 \usepackage{tikz}
 
-% Paleta sobria para jerarquía visual y navegación institucional.
-\definecolor{PastelBlue}{HTML}{DDEAF6}
-\definecolor{PastelMint}{HTML}{DDF2E6}
-\definecolor{PastelSage}{HTML}{E5EFD8}
-\definecolor{PastelYellow}{HTML}{F6EFCF}
-\definecolor{PastelPink}{HTML}{F4DDE4}
-\definecolor{PastelLavender}{HTML}{E8E1F2}
-\definecolor{PastelGreen}{HTML}{E0F0E6}
+% Paleta pastel institucional: semi arcoíris sobrio para orientar secciones.
+\definecolor{SectionBlue}{HTML}{DDEAF6}
+\definecolor{SectionTeal}{HTML}{D8EEE8}
+\definecolor{SectionGreen}{HTML}{E3EED7}
+\definecolor{SectionOchre}{HTML}{F2E6C8}
+\definecolor{SectionTerracotta}{HTML}{EED8D0}
+\definecolor{SectionViolet}{HTML}{E5DFF0}
 \definecolor{DarkText}{HTML}{27323A}
 \definecolor{SoftGray}{HTML}{D8DEE3}
 \definecolor{SoftGrayFill}{HTML}{F6F7F8}
@@ -34,28 +33,28 @@
 
 \color{DarkText}
 \arrayrulecolor{SoftGray}
-\newcommand{\SectionTone}{PastelBlue}
+\newcommand{\SectionTone}{SectionBlue}
 \newcommand{\setsectioncolor}[1]{\renewcommand{\SectionTone}{#1}}
 
 \titleformat{\section}
   {\Large\bfseries\color{DarkText}}
   {}
   {0pt}
-  {\thesection\enspace #1}
-  [\vspace{0.15em}{\color{\SectionTone}\titlerule[0.8pt]}]
+  {\colorbox{\SectionTone!28}{\parbox{\dimexpr\textwidth-2\fboxsep\relax}{\strut\thesection\enspace #1}}}
+  [\vspace{-0.25em}{\color{\SectionTone!70!black}\titlerule[0.8pt]}]
 
 \titleformat{name=\section,numberless}
   {\Large\bfseries\color{DarkText}}
   {}
   {0pt}
-  {#1}
-  [\vspace{0.15em}{\color{\SectionTone}\titlerule[0.8pt]}]
+  {\colorbox{\SectionTone!28}{\parbox{\dimexpr\textwidth-2\fboxsep\relax}{\strut #1}}}
+  [\vspace{-0.25em}{\color{\SectionTone!70!black}\titlerule[0.8pt]}]
 \titleformat{\subsection}
   {\large\bfseries\color{DarkText}}
   {}
   {0pt}
   {\thesubsection\enspace #1}
-  [{\color{\SectionTone}\titlerule[0.6pt]}]
+  [{\color{\SectionTone!70!black}\titlerule[0.45pt]}]
 \titleformat{\subsubsection}
   {\normalsize\bfseries\color{DarkText}}
   {}
@@ -81,15 +80,40 @@
   }
 }
 \newcommand{\pastelrule}[1]{\par\noindent{\color{#1}\rule{\textwidth}{1.1pt}}\par}
-\newcommand{\tableheadcolor}{\rowcolor{\SectionTone!25}}
+\newcommand{\tableheadcolor}{\rowcolor{\SectionTone!22}}
 
 
 \makeatletter
-\renewcommand*{\l@section}{\@dottedtocline{1}{0em}{2.1em}}
-\renewcommand*{\l@subsection}{\@dottedtocline{2}{2.1em}{2.9em}}
+\newcommand{\TOCSectionTone}{SectionBlue}
+\renewcommand*{\l@section}[2]{%
+  \ifnum \c@tocdepth >\z@
+    \addpenalty{\@secpenalty}%
+    \addvspace{0.35em}%
+    \begingroup
+      \noindent
+      \begin{tcolorbox}[
+        enhanced,
+        width=\linewidth,
+        boxrule=0.35pt,
+        arc=1.4mm,
+        left=6pt,
+        right=6pt,
+        top=2.5pt,
+        bottom=2.5pt,
+        colback=\TOCSectionTone!14,
+        colframe=\TOCSectionTone!70!black,
+        coltext=DarkText,
+        before skip=0pt,
+        after skip=0pt
+      ]
+        \bfseries #1\hfill\nobreak #2
+      \end{tcolorbox}%
+    \endgroup
+  \fi}
+\renewcommand*{\l@subsection}{\@dottedtocline{2}{1.8em}{2.9em}}
 \makeatother
 
-% Sección principal de propuesta: mantiene una jerarquía cromática discreta.
+% Sección principal de propuesta: sincroniza acento visual y entrada del TOC.
 \newcommand{\proposalSection}[2]{%
   \setsectioncolor{#1}%
   \section{#2}%
@@ -198,7 +222,7 @@
 \newpage
 \pagenumbering{arabic}
 
-\proposalSection{PastelBlue}{Presentación general de la propuesta}
+\proposalSection{SectionBlue}{Presentación general de la propuesta}
 
 \subsection{Nombre, descripción y destinatarios}
 
@@ -267,7 +291,7 @@ Desarrollar una experiencia de Soundpainting en Facatativá mediante formación,
   \item Fortalecer la programación escénica y cultural en el marco de Tunjo Fest.
 \end{itemize}
 
-\proposalSection{PastelPink}{Justificación cultural, social y territorial}
+\proposalSection{SectionTerracotta}{Justificación cultural, social y territorial}
 
 \subsection{Pertinencia del Soundpainting}
 
@@ -291,7 +315,7 @@ En el marco de Tunjo Fest, la propuesta funciona como una actividad artística, 
 
 A través de la improvisación, la composición en vivo y la escucha colectiva, la puesta escénica favorece el diálogo entre escuelas artísticas, amplía las posibilidades escénicas de Tunjo Fest mediante la inclusión del circo y otros lenguajes visuales o audiovisuales, y contribuye a visibilizar los procesos formativos de la Casa de la Cultura dentro de la agenda cultural municipal.
 
-\proposalSection{PastelMint}{Diseño artístico, pedagógico y metodológico}
+\proposalSection{SectionTeal}{Diseño artístico, pedagógico y metodológico}
 
 \subsection{Descripción de la presentación}
 
@@ -396,7 +420,7 @@ En este espacio se definirán las áreas participantes, el número aproximado de
 
 La programación deberá ajustarse a las dinámicas reales de la Casa de la Cultura, los docentes, los estudiantes y los espacios disponibles. Por esta razón, los horarios definitivos se construirán de común acuerdo, según la modalidad seleccionada y la capacidad operativa de la institución.
 
-\proposalSection{PastelYellow}{Producción, espacios y requerimientos técnicos}
+\proposalSection{SectionOchre}{Producción, espacios y requerimientos técnicos}
 
 \subsection{Espacios de formación, ensayo y función}
 
@@ -428,7 +452,7 @@ SoundPainters & Iluminación frontal suficiente para que las señas sean visible
 
 El rider técnico definitivo se entregará o ajustará después de conocer el espacio de función y la modalidad seleccionada.
 
-\proposalSection{PastelLavender}{Presupuesto flexible y condiciones de implementación}
+\proposalSection{SectionViolet}{Presupuesto flexible y condiciones de implementación}
 
 \subsection{Criterios generales del presupuesto}
 
@@ -604,14 +628,14 @@ Breve descripción & \rule{0.58\textwidth}{0.4pt} \\
 
 \subsection{Cierre institucional}
 
-\begin{tcolorbox}[institutionalbox,colback=PastelLavender!24,colframe=PastelLavender]
+\begin{tcolorbox}[institutionalbox,colback=SectionViolet!24,colframe=SectionViolet!70!black]
 La participación de Soundpainting Colombia en Tunjo Fest propone una experiencia artística, pedagógica y comunitaria para la Casa de la Cultura de Facatativá, mediante una práctica contemporánea, participativa e interdisciplinar.
 
 La propuesta busca dejar un resultado escénico visible, fortalecer el intercambio entre artistas invitados y artistas locales, y aportar a la programación cultural municipal.
 \end{tcolorbox}
 
 \newpage
-\proposalSection{PastelSage}{Anexo presupuestal}
+\proposalSection{SectionGreen}{Anexo presupuestal}
 
 \subsection{Costos unitarios}
 

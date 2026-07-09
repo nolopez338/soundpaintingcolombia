@@ -4,7 +4,7 @@
 \usepackage[T1]{fontenc}
 \usepackage[spanish]{babel}
 \usepackage{lmodern}
-\usepackage[a4paper,margin=1.8cm]{geometry}
+\usepackage[a4paper,margin=2cm]{geometry}
 \usepackage{array,booktabs,longtable,tabularx}
 \usepackage[table]{xcolor}
 \usepackage[most]{tcolorbox}
@@ -17,44 +17,44 @@
 \usepackage{microtype}
 \usepackage{tikz}
 
-% Paleta pastel institucional para jerarquía visual y navegación.
-\definecolor{PastelBlue}{HTML}{DDEAF6}
-\definecolor{PastelMint}{HTML}{DDF2E6}
-\definecolor{PastelSage}{HTML}{E5EFD8}
-\definecolor{PastelYellow}{HTML}{F6EFCF}
-\definecolor{PastelPink}{HTML}{F4DDE4}
-\definecolor{PastelLavender}{HTML}{E8E1F2}
-\definecolor{PastelGreen}{HTML}{E0F0E6}
+% Paleta pastel institucional: semi arcoíris sobrio para orientar secciones.
+\definecolor{SectionBlue}{HTML}{DDEAF6}
+\definecolor{SectionTeal}{HTML}{D8EEE8}
+\definecolor{SectionGreen}{HTML}{E3EED7}
+\definecolor{SectionOchre}{HTML}{F2E6C8}
+\definecolor{SectionTerracotta}{HTML}{EED8D0}
+\definecolor{SectionViolet}{HTML}{E5DFF0}
 \definecolor{DarkText}{HTML}{27323A}
 \definecolor{SoftGray}{HTML}{D8DEE3}
 \definecolor{SoftGrayFill}{HTML}{F6F7F8}
 \definecolor{MutedText}{HTML}{5A6670}
 \definecolor{MutedURLBlue}{HTML}{2F5F8F}
+\definecolor{InstitutionalBlue}{HTML}{DDEAF6}
 
 \color{DarkText}
 \arrayrulecolor{SoftGray}
-\newcommand{\SectionTone}{PastelBlue}
+\newcommand{\SectionTone}{SectionBlue}
 \newcommand{\setsectioncolor}[1]{\renewcommand{\SectionTone}{#1}}
 
 \titleformat{\section}
   {\Large\bfseries\color{DarkText}}
   {}
   {0pt}
-  {\colorbox{\SectionTone}{\parbox{\dimexpr\textwidth-2\fboxsep\relax}{\strut\thesection\enspace #1}}}
-  [\vspace{-0.35em}{\color{\SectionTone}\titlerule[1.2pt]}]
+  {\colorbox{\SectionTone!28}{\parbox{\dimexpr\textwidth-2\fboxsep\relax}{\strut\thesection\enspace #1}}}
+  [\vspace{-0.25em}{\color{\SectionTone!70!black}\titlerule[0.8pt]}]
 
 \titleformat{name=\section,numberless}
   {\Large\bfseries\color{DarkText}}
   {}
   {0pt}
-  {\colorbox{\SectionTone}{\parbox{\dimexpr\textwidth-2\fboxsep\relax}{\strut #1}}}
-  [\vspace{-0.35em}{\color{\SectionTone}\titlerule[1.2pt]}]
+  {\colorbox{\SectionTone!28}{\parbox{\dimexpr\textwidth-2\fboxsep\relax}{\strut #1}}}
+  [\vspace{-0.25em}{\color{\SectionTone!70!black}\titlerule[0.8pt]}]
 \titleformat{\subsection}
   {\large\bfseries\color{DarkText}}
   {}
   {0pt}
   {\thesubsection\enspace #1}
-  [{\color{\SectionTone}\titlerule[0.6pt]}]
+  [{\color{\SectionTone!70!black}\titlerule[0.45pt]}]
 \titleformat{\subsubsection}
   {\normalsize\bfseries\color{DarkText}}
   {}
@@ -80,32 +80,28 @@
   }
 }
 \newcommand{\pastelrule}[1]{\par\noindent{\color{#1}\rule{\textwidth}{1.1pt}}\par}
-\newcommand{\tableheadcolor}{\rowcolor{\SectionTone!55}}
+\newcommand{\tableheadcolor}{\rowcolor{\SectionTone!22}}
 
 
-% Entradas principales del índice con el color funcional de cada sección.
 \makeatletter
-\newcommand{\TOCSectionTone}{PastelBlue}
-% El índice omite numeración; la numeración se mantiene en el cuerpo del documento.
-\renewcommand{\numberline}[1]{}
+\newcommand{\TOCSectionTone}{SectionBlue}
 \renewcommand*{\l@section}[2]{%
   \ifnum \c@tocdepth >\z@
     \addpenalty{\@secpenalty}%
-    \addvspace{0.45em}%
+    \addvspace{0.35em}%
     \begingroup
-      \setlength{\fboxsep}{0pt}%
       \noindent
       \begin{tcolorbox}[
         enhanced,
         width=\linewidth,
-        boxrule=0.45pt,
-        arc=1.6mm,
+        boxrule=0.35pt,
+        arc=1.4mm,
         left=6pt,
         right=6pt,
-        top=3pt,
-        bottom=3pt,
-        colback=\TOCSectionTone!18,
-        colframe=\TOCSectionTone,
+        top=2.5pt,
+        bottom=2.5pt,
+        colback=\TOCSectionTone!14,
+        colframe=\TOCSectionTone!70!black,
         coltext=DarkText,
         before skip=0pt,
         after skip=0pt
@@ -114,10 +110,10 @@
       \end{tcolorbox}%
     \endgroup
   \fi}
-\renewcommand*{\l@subsection}{\@dottedtocline{2}{1.4em}{0em}}
+\renewcommand*{\l@subsection}{\@dottedtocline{2}{1.8em}{2.9em}}
 \makeatother
 
-% Sección principal de propuesta: sincroniza color visual y color de TOC.
+% Sección principal de propuesta: sincroniza acento visual y entrada del TOC.
 \newcommand{\proposalSection}[2]{%
   \setsectioncolor{#1}%
   \addtocontents{toc}{\protect\renewcommand{\protect\TOCSectionTone}{#1}}%
@@ -139,6 +135,7 @@
 \setlength{\tabcolsep}{4pt}
 \renewcommand{\arraystretch}{1.18}
 \newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash}p{#1}}
 \newcolumntype{Y}{>{\raggedright\arraybackslash}X}
 \setlength{\LTleft}{0pt}
 \setlength{\LTright}{0pt}
@@ -148,13 +145,13 @@
 
 \pagestyle{fancy}
 \fancyhf{}
-\lhead{Soundpainting para Tunjo Fest}
-\rhead{}
+\lhead{\footnotesize Puesta escénica de Soundpainting para Tunjo Fest}
+\rhead{\footnotesize Facatativá}
 \cfoot{\thepage}
 \renewcommand{\headrulewidth}{0.4pt}
 \renewcommand{\headrule}{\hbox to\headwidth{\color{SoftGray}\leaders\hrule height \headrulewidth\hfill}}
 
-\newcommand{\proposalnote}[1]{\begin{tcolorbox}[institutionalbox,colback=PastelLavender!28,colframe=PastelLavender]\textit{#1}\end{tcolorbox}}
+\newcommand{\proposalnote}[1]{\begin{tcolorbox}[institutionalbox,colback=SoftGrayFill,colframe=SoftGray]\textit{#1}\end{tcolorbox}}
 \newcommand{\cop}{COP}
 
 \newsavebox{\roundedimagebox}
@@ -182,17 +179,19 @@
 
 \begin{titlepage}
   \centering
-  \pastelrule{PastelBlue}
-  \vspace{0.8cm}
+  \pastelrule{InstitutionalBlue}
+  \vspace{0.65cm}
   {\Large\textbf{Soundpainting Colombia}\par}
-  \vspace{1.cm}
+  \vspace{0.75cm}
   {\Huge\textbf{Puesta escénica de Soundpainting para Tunjo Fest}\par}
   \vspace{0.45cm}
   {\Large\color{MutedText} Propuesta artística, pedagógica y comunitaria en el marco de Tunjo Fest\par}
-  \vspace{0.75cm}
+  \vspace{0.55cm}
   {\large Dirigida a la Casa de la Cultura de Facatativá\par}
-  \vspace{0.8cm}
-  \begin{tcolorbox}[institutionalbox,colback=PastelBlue!32,colframe=PastelBlue,width=0.86\textwidth]
+  \vspace{0.35cm}
+  \includegraphics[height=1.8cm]{../../assets/images/logo_faca.png}
+  \vspace{0.55cm}
+  \begin{tcolorbox}[institutionalbox,colback=SoftGrayFill,colframe=SoftGray,width=0.86\textwidth]
   \centering
   \begin{tabular}{@{}ll@{}}
     \textbf{Colectivo proponente:} & Soundpainting Colombia \\
@@ -202,7 +201,7 @@
   \end{tabular}
   \end{tcolorbox}
   
-  \vspace*{1.2cm}
+  \vspace*{0.95cm}
   \begin{minipage}{0.45\textwidth}
   	\centering
   	\includegraphics[height=3.8cm]{../../assets/images/logo_soundpaintingcolombia.jpeg}
@@ -213,7 +212,7 @@
   	\includegraphics[height=3.8cm]{../../assets/images/logo_fundacionLideresHumanitarias.jpeg}
   \end{minipage}
   \vfill
-  \pastelrule{PastelPink}
+  \pastelrule{SoftGray}
   \vspace{0.35cm}
   {\large Facatativá, Colombia\par}
   
@@ -221,11 +220,10 @@
 
 \pagenumbering{roman}
 \tableofcontents
-%\newpage
+\newpage
 \pagenumbering{arabic}
 
-\vspace{1.cm}
-\proposalSection{PastelBlue}{Presentación general de la propuesta}
+\proposalSection{SectionBlue}{Presentación general de la propuesta}
 
 \subsection{Nombre, descripción y destinatarios}
 
@@ -271,7 +269,7 @@ La función principal se proyecta en el marco de Tunjo Fest, en octubre. El deta
 \end{itemize}
 
 \begin{center}
-	\roundedlinkedimage[0.82\textwidth]
+	\roundedlinkedimage[0.70\textwidth]
 	{https://www.canva.com/design/DAG4suoYzf4/IvxMuhm1ZMFyDcmN4m4vkw/edit}
 	{../../assets/images/portafolio_soundpainting.png}
 \end{center}
@@ -294,7 +292,7 @@ Desarrollar una experiencia de Soundpainting en Facatativá mediante formación,
   \item Fortalecer la programación escénica y cultural en el marco de Tunjo Fest.
 \end{itemize}
 
-\proposalSection{PastelPink}{Justificación cultural, social y territorial}
+\proposalSection{SectionTerracotta}{Justificación cultural, social y territorial}
 
 \subsection{Pertinencia del Soundpainting}
 
@@ -318,7 +316,7 @@ En el marco de Tunjo Fest, la propuesta funciona como una actividad artística, 
 
 A través de la improvisación, la composición en vivo y la escucha colectiva, la puesta escénica favorece el diálogo entre escuelas artísticas, amplía las posibilidades escénicas de Tunjo Fest mediante la inclusión del circo y otros lenguajes visuales o audiovisuales, y contribuye a visibilizar los procesos formativos de la Casa de la Cultura dentro de la agenda cultural municipal.
 
-\proposalSection{PastelMint}{Diseño artístico, pedagógico y metodológico}
+\proposalSection{SectionTeal}{Diseño artístico, pedagógico y metodológico}
 
 \subsection{Descripción de la presentación}
 
@@ -423,7 +421,7 @@ En este espacio se definirán las áreas participantes, el número aproximado de
 
 La programación deberá ajustarse a las dinámicas reales de la Casa de la Cultura, los docentes, los estudiantes y los espacios disponibles. Por esta razón, los horarios definitivos se construirán de común acuerdo, según la modalidad seleccionada y la capacidad operativa de la institución.
 
-\proposalSection{PastelYellow}{Producción, espacios y requerimientos técnicos}
+\proposalSection{SectionOchre}{Producción, espacios y requerimientos técnicos}
 
 \subsection{Espacios de formación, ensayo y función}
 
@@ -455,7 +453,7 @@ SoundPainters & Iluminación frontal suficiente para que las señas sean visible
 
 El rider técnico definitivo se entregará o ajustará después de conocer el espacio de función y la modalidad seleccionada.
 
-\proposalSection{PastelLavender}{Presupuesto flexible y condiciones de implementación}
+\proposalSection{SectionViolet}{Presupuesto flexible y condiciones de implementación}
 
 \subsection{Criterios generales del presupuesto}
 
@@ -486,7 +484,7 @@ Los siguientes valores corresponden al presupuesto base estimado para cada modal
 \end{itemize}
 
 {\small
-\begin{tabularx}{\textwidth}{@{}L{0.16\textwidth}Y Y Y Y@{}}
+\begin{tabularx}{\textwidth}{@{}L{0.16\textwidth}Y Y Y R{0.20\textwidth}@{}}
 \toprule
 \tableheadcolor
 \textbf{Número de áreas} & \textbf{Formación con viáticos} & \textbf{Ensamble con viáticos} & \textbf{Función} & \textbf{Total consolidado} \\
@@ -506,7 +504,7 @@ Los siguientes valores corresponden al presupuesto base estimado para cada modal
 \end{itemize}
 
 {\small
-\begin{tabularx}{\textwidth}{@{}L{0.16\textwidth}Y Y Y Y@{}}
+\begin{tabularx}{\textwidth}{@{}L{0.16\textwidth}Y Y Y R{0.20\textwidth}@{}}
 \toprule
 \tableheadcolor
 \textbf{Número de áreas} & \textbf{Formación con viáticos} & \textbf{Ensamble con viáticos} & \textbf{Función} & \textbf{Total consolidado} \\
@@ -526,7 +524,7 @@ Los siguientes valores corresponden al presupuesto base estimado para cada modal
 \end{itemize}
 
 {\small
-\begin{tabularx}{\textwidth}{@{}L{0.16\textwidth}Y Y Y Y@{}}
+\begin{tabularx}{\textwidth}{@{}L{0.16\textwidth}Y Y Y R{0.20\textwidth}@{}}
 \toprule
 \tableheadcolor
 \textbf{Número de áreas} & \textbf{Formación con viáticos} & \textbf{Ensamble con viáticos} & \textbf{Función} & \textbf{Total consolidado} \\
@@ -542,7 +540,7 @@ Los siguientes valores corresponden al presupuesto base estimado para cada modal
 \subsection{Resumen general por rangos}
 
 {\small
-\begin{tabularx}{\textwidth}{@{}L{0.24\textwidth}L{0.14\textwidth}L{0.15\textwidth}Y Y@{}}
+\begin{tabularx}{\textwidth}{@{}L{0.24\textwidth}L{0.14\textwidth}L{0.15\textwidth}R{0.18\textwidth}R{0.18\textwidth}@{}}
 \toprule
 \tableheadcolor
 \textbf{Modalidad} & \textbf{Escala} & \textbf{Rango de áreas} & \textbf{Total mínimo estimado} & \textbf{Total máximo estimado} \\
@@ -561,7 +559,7 @@ La propuesta puede incluir cobertura audiovisual del proceso formativo, el ensam
 La cobertura audiovisual puede contratarse en dos modalidades:
 
 {\small
-\begin{tabularx}{\textwidth}{@{}L{0.28\textwidth}Y L{0.22\textwidth}@{}}
+\begin{tabularx}{\textwidth}{@{}L{0.28\textwidth}Y R{0.22\textwidth}@{}}
 \toprule
 \tableheadcolor
 \textbf{Modalidad de cobertura audiovisual} & \textbf{Alcance} & \textbf{Valor estimado} \\
@@ -631,13 +629,14 @@ Breve descripción & \rule{0.58\textwidth}{0.4pt} \\
 
 \subsection{Cierre institucional}
 
-\begin{tcolorbox}[institutionalbox,colback=PastelLavender!24,colframe=PastelLavender]
+\begin{tcolorbox}[institutionalbox,colback=SectionViolet!24,colframe=SectionViolet!70!black]
 La participación de Soundpainting Colombia en Tunjo Fest propone una experiencia artística, pedagógica y comunitaria para la Casa de la Cultura de Facatativá, mediante una práctica contemporánea, participativa e interdisciplinar.
 
 La propuesta busca dejar un resultado escénico visible, fortalecer el intercambio entre artistas invitados y artistas locales, y aportar a la programación cultural municipal.
 \end{tcolorbox}
 
-\proposalSection{PastelSage}{Anexo presupuestal}
+\newpage
+\proposalSection{SectionGreen}{Anexo presupuestal}
 
 \subsection{Costos unitarios}
 

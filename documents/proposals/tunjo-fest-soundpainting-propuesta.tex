@@ -87,12 +87,24 @@
 \newcommand{\CurrentTOCSectionTone}{SectionBlue}
 \newcommand{\settocsectioncolor}[1]{\gdef\CurrentTOCSectionTone{#1}}
 \newlength{\TOCSectionPageWidth}
-\setlength{\TOCSectionPageWidth}{2.8em}
+\setlength{\TOCSectionPageWidth}{2.4em}
+\newcommand{\TOCSectionEntry}[2]{%
+  \begin{minipage}[c]{\dimexpr\linewidth-\TOCSectionPageWidth-0.8em\relax}%
+    \raggedright\bfseries
+    #1%
+  \end{minipage}%
+  \hfill
+  \begin{minipage}[c]{\TOCSectionPageWidth}%
+    \raggedleft\bfseries
+    #2%
+  \end{minipage}%
+}
 \renewcommand*{\l@section}[2]{%
   \ifnum \c@tocdepth >\z@
     \addpenalty{\@secpenalty}%
     \addvspace{0.28em}%
     \begingroup
+      \renewcommand\numberline[1]{##1\enspace}%
       \noindent
       \begin{tcolorbox}[
         enhanced,
@@ -110,15 +122,7 @@
         before skip=0pt,
         after skip=0pt
       ]%
-        \bfseries
-        \leavevmode
-        \parbox[t]{\dimexpr\linewidth-\TOCSectionPageWidth-0.75em\relax}{%
-          \raggedright\strut #1\strut
-        }%
-        \hfill
-        \parbox[t]{\TOCSectionPageWidth}{%
-          \raggedleft\strut\nobreak #2\strut
-        }%
+        \TOCSectionEntry{#1}{#2}%
       \end{tcolorbox}%
     \endgroup
   \fi}

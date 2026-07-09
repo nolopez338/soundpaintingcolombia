@@ -84,7 +84,8 @@
 
 
 \makeatletter
-\newcommand{\TOCSectionTone}{SectionBlue}
+\newcommand{\CurrentTOCSectionTone}{SectionBlue}
+\newcommand{\settocsectioncolor}[1]{\gdef\CurrentTOCSectionTone{#1}}
 \renewcommand*{\l@section}[2]{%
   \ifnum \c@tocdepth >\z@
     \addpenalty{\@secpenalty}%
@@ -100,13 +101,15 @@
         right=6pt,
         top=2.5pt,
         bottom=2.5pt,
-        colback=\TOCSectionTone!14,
-        colframe=\TOCSectionTone!70!black,
+        colback=\CurrentTOCSectionTone!14,
+        colframe=\CurrentTOCSectionTone!70!black,
         coltext=DarkText,
         before skip=0pt,
         after skip=0pt
       ]
-        \bfseries #1\hfill\nobreak #2
+        \begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}X>{\raggedleft\arraybackslash}p{2.6em}@{}}
+          \bfseries #1 & \bfseries\nobreak #2
+        \end{tabularx}
       \end{tcolorbox}%
     \endgroup
   \fi}
@@ -116,6 +119,7 @@
 % Sección principal de propuesta: sincroniza acento visual y entrada del TOC.
 \newcommand{\proposalSection}[2]{%
   \setsectioncolor{#1}%
+  \addtocontents{toc}{\protect\settocsectioncolor{#1}}%
   \section{#2}%
 }
 

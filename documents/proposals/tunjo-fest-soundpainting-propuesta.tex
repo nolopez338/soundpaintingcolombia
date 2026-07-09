@@ -86,10 +86,12 @@
 \makeatletter
 \newcommand{\CurrentTOCSectionTone}{SectionBlue}
 \newcommand{\settocsectioncolor}[1]{\gdef\CurrentTOCSectionTone{#1}}
+\newlength{\TOCSectionPageWidth}
+\setlength{\TOCSectionPageWidth}{2.8em}
 \renewcommand*{\l@section}[2]{%
   \ifnum \c@tocdepth >\z@
     \addpenalty{\@secpenalty}%
-    \addvspace{0.35em}%
+    \addvspace{0.28em}%
     \begingroup
       \noindent
       \begin{tcolorbox}[
@@ -97,19 +99,26 @@
         width=\linewidth,
         boxrule=0.35pt,
         arc=1.4mm,
-        left=6pt,
-        right=6pt,
-        top=2.5pt,
-        bottom=2.5pt,
-        colback=\CurrentTOCSectionTone!14,
+        left=5pt,
+        right=5pt,
+        top=1.5pt,
+        bottom=1.5pt,
+        boxsep=0pt,
+        colback=\CurrentTOCSectionTone!28,
         colframe=\CurrentTOCSectionTone!70!black,
         coltext=DarkText,
         before skip=0pt,
         after skip=0pt
-      ]
-        \begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}X>{\raggedleft\arraybackslash}p{2.6em}@{}}
-          \bfseries #1 & \bfseries\nobreak #2
-        \end{tabularx}
+      ]%
+        \bfseries
+        \leavevmode
+        \parbox[t]{\dimexpr\linewidth-\TOCSectionPageWidth-0.75em\relax}{%
+          \raggedright\strut #1\strut
+        }%
+        \hfill
+        \parbox[t]{\TOCSectionPageWidth}{%
+          \raggedleft\strut\nobreak #2\strut
+        }%
       \end{tcolorbox}%
     \endgroup
   \fi}
@@ -119,7 +128,7 @@
 % Sección principal de propuesta: sincroniza acento visual y entrada del TOC.
 \newcommand{\proposalSection}[2]{%
   \setsectioncolor{#1}%
-  \addtocontents{toc}{\protect\settocsectioncolor{#1}}%
+  \addtocontents{toc}{\protect\settocsectioncolor{#1}\protect\ignorespaces}%
   \section{#2}%
 }
 
